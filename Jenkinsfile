@@ -36,7 +36,7 @@ spec:
         stage('Port Scan (Metasploit Image') {
             steps {
                 container('msp') {
-                    sh 'msfconsole -n -q -r /probe/resourceFile.txt'
+                    sh '/usr/src/metasploit-framework/msfconsole -n -q -r /probe/resourceFile.txt'
                 }
             }
         }
