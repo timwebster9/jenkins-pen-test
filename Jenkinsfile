@@ -17,13 +17,25 @@ spec:
     command:
     - cat
     tty: true
+  - name: msp
+    image: timwebster9/metasploit:latest
+    command:
+    - cat
+    tty: true
 """
     }
   }
     stages {
-        stage('Port Scan') {
+        stage('Port Scan (Kali Image') {
             steps {
                 container('kali') {
+                    sh 'msfconsole -n -q -r /probe/resourceFile.txt'
+                }
+            }
+        }
+        stage('Port Scan (Metasploit Image') {
+            steps {
+                container('msp') {
                     sh 'msfconsole -n -q -r /probe/resourceFile.txt'
                 }
             }
