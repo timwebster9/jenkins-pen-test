@@ -26,14 +26,14 @@ spec:
     }
   }
     stages {
-        stage('Port Scan (Kali Image') {
+        stage('Port Scan (Kali Image)') {
             steps {
                 container('kali') {
                     sh 'msfconsole -n -q -r /probe/resourceFile.txt'
                 }
             }
         }
-        stage('Port Scan (Metasploit Image') {
+        stage('Port Scan (Metasploit Image)') {
             steps {
                 container('msp') {
                     sh '/usr/src/metasploit-framework/msfconsole -n -q -r /probe/resourceFile.txt'
